@@ -69,11 +69,9 @@ python pi_machin.py
 ## Chudnovsky Algorithm
 
 The Chudnovsky algorithm is a fast method for calculating the digits of π, based on Ramanujan's π formulae. It was published by the Chudnovsky brothers in 1988 and is known for its efficiency in computing π to a high number of decimal 
-places. 
+places.
 
-```math
-\frac{1}{π} = 12\sum_{k=0}^\infty \frac{(-1)^k(6k)!(545140134k + 13591409)}{(3k)!(k!)^3(640320)^{3k + 3/2}}
-```
+$$\frac{1}{π} = 12\sum_{k=0}^\infty \frac{(-1)^k(6k)!(545140134k + 13591409)}{(3k)!(k!)^3(640320)^{3k + 3/2}}$$
 
 `pi_chudnovsky.py` is a direct Python implementation of the Chudnovsky Algorithm to calculate π to an arbitrary precision. It includes a GUI dialog box to enter the input precision. 
 The output is displayed in scrollable text box that can be highlighted and copied.  
@@ -88,9 +86,7 @@ More details on the Chudnovsky Algorithm can be found on [Wikipedia](https://en.
 
 The Bailey-Borwein-Plouffe (BBP) is a formula for calculating π discovered in 1995 by Simon Plouffe. It is named after the authors of the article in which it was published, David H. Bailey, Peter Borwein, and Plouffe.
 
-```math
-π = \sum_{k=0}^\infty \left[ \frac{1}{16^k} \left( \frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6} \right) \right]
-```
+$$π = \sum_{k=0}^\infty \left[ \frac{1}{16^k} \left( \frac{4}{8k+1} - \frac{2}{8k+4} - \frac{1}{8k+5} - \frac{1}{8k+6} \right) \right]$$
 
 `pi_bbp.py` is a Python implementation of the BBP formula to calculate π to an arbitrary precision. It includes a GUI dialog box to enter the input precision. 
 The output is displayed in scrollable text box that can be highlighted and copied.  
@@ -103,9 +99,7 @@ More details on the BBP formula can be found on [Wikipedia](https://en.wikipedia
 
 Machin's formula discovered by John Machin in 1706 is a method to calculate π using the arctangent function. 
 
-```math
-π = 16arctan \left( \frac{1}{5} \right) - 4*arctan \left( \frac{1}{239} \right)
-```
+$$π = 16arctan \left( \frac{1}{5} \right) - 4*arctan \left( \frac{1}{239} \right)$$
 
 `pi_machin.py` is a Python implementation of the Machin formula to calculate π to an arbitrary precision. It includes a GUI dialog box to enter the input precision. 
 The output is displayed in scrollable text box that can be highlighted and copied.  
