@@ -37,7 +37,6 @@ def piChudnovsky(precision_num_digits):
     return pi_result_rounded
 
 
-
 def readInputsAndCompute(input_window, input1_var):
     input_precision_n_digits_str = input1_var.get()    
         
@@ -70,6 +69,13 @@ def readInputsAndCompute(input_window, input1_var):
     output_text_str = result_str + "\n\n" + elapsed_time_str
     scrolledText.insert(tk.INSERT, output_text_str)
     scrolledText.pack(fill=tk.BOTH, expand=True)
+    # Right click menu for copy and select all
+    menu = tk.Menu(scrolledText, tearoff=0)
+    # Menu options
+    menu.add_command(label="Copy", accelerator="Ctrl+C", command=lambda: scrolledText.event_generate("<<Copy>>"))
+    menu.add_command(label="Select All", accelerator="Ctrl+A", command=lambda: scrolledText.event_generate("<<SelectAll>>"))
+    # Make menu pop up on right click event
+    scrolledText.bind("<Button -3>", lambda event: menu.tk_popup(event.x_root, event.y_root))
 
 
 def main():
@@ -90,6 +96,7 @@ def main():
 
     button = tk.Button(input_window, text="Submit", command=lambda: readInputsAndCompute(input_window, input1_var))
     button.grid(row=5,column=0, pady=(20, 20))
+    input_window.bind('<Return>', lambda event: readInputsAndCompute(input_window, input1_var))
 
     input_window.mainloop()
 
