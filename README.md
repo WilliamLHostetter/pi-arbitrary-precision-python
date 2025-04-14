@@ -1,6 +1,10 @@
 # π to arbitrary precision
-Python implementations of numerical methods for calculating the digits of π to an arbitrary precision.
 
+<p align="center" width="100%">
+  <img style="display: block; margin: auto;" src="./images/pi-digits.svg"/>
+</p>
+
+Python implementations of numerical methods for calculating the digits of π to an arbitrary precision.
 
 Includes a GUI dialog box to enter the input precision. 
 <p align="center" width="100%">
