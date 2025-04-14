@@ -10,13 +10,13 @@ copied.
 
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
-import math
 import decimal
+from decimal import Decimal
 import time
 
 
 
-def arctan_one_over_x(x, unity):
+def arctan_one_over_x(x: int, unity: int) -> int:
     """
     Calculate arctan(1/x)
     arctan(1/x) = 1/x - 1/3*x**3 + 1/5*x**5 - ... (x >= 1)
@@ -36,7 +36,7 @@ def arctan_one_over_x(x, unity):
     return sum
 
 
-def piMachin(precision_num_digits):
+def piMachin(precision_num_digits: int) -> Decimal:
     # Use 10 guard digits internally during the calculation to avoid rounding errors in the result.
     unity = 10**(precision_num_digits + 1 + 10) 
     pi_result = (4 * (4*arctan_one_over_x(5, unity) - arctan_one_over_x(239, unity))) // (10**10)
@@ -47,7 +47,7 @@ def piMachin(precision_num_digits):
     return pi_result_decimal
 
 
-def readInputsAndCompute(input_window, input1_var):
+def readInputsAndCompute(input_window: tk.Tk, input1_var: tk.StringVar) -> None:
     input_precision_n_digits_str = input1_var.get()    
         
     try:
@@ -88,7 +88,7 @@ def readInputsAndCompute(input_window, input1_var):
     scrolledText.bind("<Button -3>", lambda event: menu.tk_popup(event.x_root, event.y_root))
 
 
-def main():
+def main() -> None:
 
     input_window = tk.Tk()
     input_window.title("Input")

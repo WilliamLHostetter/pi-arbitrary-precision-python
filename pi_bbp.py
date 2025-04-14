@@ -15,22 +15,23 @@ For reference, the first 100 digits of π are
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
 import decimal
+from decimal import Decimal
 import time
 
 
 
-def piBBP(precision_num_digits):
+def piBBP(precision_num_digits: int) -> Decimal:
     decimal.getcontext().prec=precision_num_digits + 2
-    pi_result = sum(1/decimal.Decimal(16)**k * 
-                    (decimal.Decimal(4)/(8*k+1) - 
-                    decimal.Decimal(2)/(8*k+4) - 
-                    decimal.Decimal(1)/(8*k+5) -
-                    decimal.Decimal(1)/(8*k+6)) for k in range (precision_num_digits))
+    pi_result = sum(1/Decimal(16)**k * 
+                    (Decimal(4)/(8*k+1) - 
+                    Decimal(2)/(8*k+4) - 
+                    Decimal(1)/(8*k+5) -
+                    Decimal(1)/(8*k+6)) for k in range (precision_num_digits))
     pi_result_rounded = round(pi_result, precision_num_digits)
     return pi_result_rounded 
 
 
-def readInputsAndCompute(input_window, input1_var):
+def readInputsAndCompute(input_window: tk.Tk, input1_var: tk.StringVar) -> None:
     input_precision_n_digits_str = input1_var.get()    
         
     try:
@@ -71,7 +72,7 @@ def readInputsAndCompute(input_window, input1_var):
     scrolledText.bind("<Button -3>", lambda event: menu.tk_popup(event.x_root, event.y_root))
 
 
-def main():
+def main() -> None:
 
     input_window = tk.Tk()
     input_window.title("Input")

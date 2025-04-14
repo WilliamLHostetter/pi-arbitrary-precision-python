@@ -16,11 +16,12 @@ For reference, the first 100 digits of π are
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
 import decimal
+from decimal import Decimal
 import time
 
 
 
-def binary_split(a, b):
+def binary_split(a: int, b: int) -> tuple[int, int, int]:
     if b == a + 1:
         Pab = -(6*a - 5)*(2*a - 1)*(6*a - 1)
         Qab = 10939058860032000 * a**3
@@ -36,16 +37,16 @@ def binary_split(a, b):
     return Pab, Qab, Rab
 
 
-def piChudnovsky(precision_num_digits):
+def piChudnovsky(precision_num_digits: int) -> Decimal:
     decimal_precision = precision_num_digits + 2
     decimal.getcontext().prec = decimal_precision
     P1n, Q1n, R1n = binary_split(1, precision_num_digits)
-    pi_result = (426880 * decimal.Decimal(10005).sqrt() * Q1n) / (13591409*Q1n + R1n)
+    pi_result = (426880 * Decimal(10005).sqrt() * Q1n) / (13591409*Q1n + R1n)
     pi_result_rounded = round(pi_result, precision_num_digits)
     return pi_result_rounded
 
 
-def readInputsAndCompute(input_window, input1_var):
+def readInputsAndCompute(input_window: tk.Tk, input1_var: tk.StringVar) -> None:
     input_precision_n_digits_str = input1_var.get()    
         
     try:
@@ -86,7 +87,7 @@ def readInputsAndCompute(input_window, input1_var):
     scrolledText.bind("<Button -3>", lambda event: menu.tk_popup(event.x_root, event.y_root))
 
 
-def main():
+def main() -> None:
 
     input_window = tk.Tk()
     input_window.title("Input")
