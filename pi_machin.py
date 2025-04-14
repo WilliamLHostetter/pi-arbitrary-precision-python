@@ -43,7 +43,7 @@ def piMachin(precision_num_digits: int) -> Decimal:
     pi_result_str = str(pi_result)
     pi_result_str = pi_result_str[:1] + "." + pi_result_str[1:]
     decimal.getcontext().prec = precision_num_digits
-    pi_result_decimal = decimal.Decimal(pi_result_str)
+    pi_result_decimal = Decimal(pi_result_str)
     return pi_result_decimal
 
 
