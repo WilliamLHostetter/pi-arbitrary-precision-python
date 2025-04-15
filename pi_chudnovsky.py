@@ -17,27 +17,28 @@ import tkinter as tk
 from tkinter import scrolledtext, messagebox
 import math
 import decimal
+from decimal import Decimal
 import time
 
 
 
-def piChudnovsky(precision_num_digits):
-    decimal_precision = precision_num_digits + 2
+def piChudnovsky(precision_num_digits: int) -> Decimal:
+    decimal_precision = precision_num_digits + 3
     decimal.getcontext().prec = decimal_precision
-    total = decimal.Decimal(0)
+    total = Decimal(0)
 
     for k in range(precision_num_digits):
-        a_k = decimal.Decimal(((-1)**k)*((math.factorial(6*k))*(545140134*k + 13591409)) /
-                (math.factorial(3*k)*(math.factorial(k)**3)*((decimal.Decimal(640320))**(decimal.Decimal(3*k + 3/2)))))
+        a_k = Decimal(((-1)**k)*((math.factorial(6*k))*(545140134*k + 13591409)) /
+                (math.factorial(3*k)*(math.factorial(k)**3)*((Decimal(640320))**(Decimal(3*k + 3/2)))))
         total += a_k
     
-    sum_result = decimal.Decimal(12) * total 
-    pi_result = decimal.Decimal(1) / sum_result
+    sum_result = Decimal(12) * total 
+    pi_result = Decimal(1) / sum_result
     pi_result_rounded = round(pi_result, precision_num_digits)
     return pi_result_rounded
 
 
-def readInputsAndCompute(input_window, input1_var):
+def readInputsAndCompute(input_window: tk.Tk, input1_var: tk.StringVar) -> None:
     input_precision_n_digits_str = input1_var.get()    
         
     try:
@@ -78,8 +79,8 @@ def readInputsAndCompute(input_window, input1_var):
     scrolledText.bind("<Button -3>", lambda event: menu.tk_popup(event.x_root, event.y_root))
 
 
-def main():
-
+def main() -> None:
+    
     input_window = tk.Tk()
     input_window.title("Input")
     input_window.geometry("400x125")

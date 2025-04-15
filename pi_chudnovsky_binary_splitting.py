@@ -38,7 +38,7 @@ def binary_split(a: int, b: int) -> tuple[int, int, int]:
 
 
 def piChudnovsky(precision_num_digits: int) -> Decimal:
-    decimal_precision = precision_num_digits + 2
+    decimal_precision = precision_num_digits + 3
     decimal.getcontext().prec = decimal_precision
     P1n, Q1n, R1n = binary_split(1, precision_num_digits)
     pi_result = (426880 * Decimal(10005).sqrt() * Q1n) / (13591409*Q1n + R1n)

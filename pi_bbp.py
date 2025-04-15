@@ -8,7 +8,7 @@ arbitrary precision. Includes a GUI dialog box to enter the input precision.
 The output is displayed in scrollable text box that can be highlighted and 
 copied.
 
-For reference, the first 100 digits of π are
+For reference, π to a hundred decimal places is 
 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
 '''
 
@@ -21,7 +21,7 @@ import time
 
 
 def piBBP(precision_num_digits: int) -> Decimal:
-    decimal.getcontext().prec=precision_num_digits + 2
+    decimal.getcontext().prec=precision_num_digits + 3
     pi_result = sum(1/Decimal(16)**k * 
                     (Decimal(4)/(8*k+1) - 
                     Decimal(2)/(8*k+4) - 
