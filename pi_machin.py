@@ -38,12 +38,12 @@ def arctan_one_over_x(x: int, unity: int) -> int:
 
 def piMachin(precision_num_digits: int) -> Decimal:
     # Use 10 guard digits internally during the calculation to avoid rounding errors in the result.
-    unity = 10**(precision_num_digits + 1 + 10) 
+    unity = 10**(precision_num_digits + 3 + 10) 
     pi_result = (4 * (4*arctan_one_over_x(5, unity) - arctan_one_over_x(239, unity))) // (10**10)
     pi_result_str = str(pi_result)
     pi_result_str = pi_result_str[:1] + "." + pi_result_str[1:]
-    decimal.getcontext().prec = precision_num_digits
-    pi_result_decimal = Decimal(pi_result_str)
+    decimal.getcontext().prec = precision_num_digits + 11
+    pi_result_decimal = round(Decimal(pi_result_str), precision_num_digits)
     return pi_result_decimal
 
 
